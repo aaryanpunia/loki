@@ -1,4 +1,4 @@
-This is a rough specification of the language used to interact with LokiDB. It uses [Backus-Naur form][https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form] to describe the syntax.
+This is a rough specification of the language used to interact with LokiDB. It uses [Backus-Naur form](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) to describe the syntax.
 # Keywords
 
 ## Struct
