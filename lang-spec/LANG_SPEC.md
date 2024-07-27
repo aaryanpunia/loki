@@ -3,7 +3,7 @@ This is a rough specification of the language used to interact with LokiDB. It u
 
 ## Struct
 
-**Example
+**Example**
 ```
 struct Dog {
 	name: string,
@@ -14,7 +14,7 @@ struct Dog {
 
 The `struct` keyword is used to define the schema of an object in Loki.
 
-**BNF
+**BNF**
 ```
 <struct> ::= <struct> <{> <field>+ <}> <;>
 <field> ::= <type> <:> <name> <,>
