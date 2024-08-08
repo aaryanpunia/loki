@@ -16,10 +16,26 @@ pub enum Token {
     True,
     #[token("false")]
     False,
+    #[token("Int32")]
+    Int32,
+    #[token("Int64")]
+    Int64,
+    #[token("Uint32")]
+    Uint32,
+    #[token("Uint64")]
+    Uint64,
+    #[token("Bool")]
+    Bool,
+    #[token("String")]
+    String,
 
     // Punctuation
     #[token(",")]
     Comma,
+    #[token("[")]
+    LeftSquareBracket,
+    #[token("]")]
+    RightSquareBracket,
     #[token("{")]
     LeftCurlyBrace,
     #[token("}")]
@@ -32,6 +48,8 @@ pub enum Token {
     Dot,
     #[token(";")]
     SemiColon,
+    #[token(":")]
+    Colon,
 
     // Operators
     #[token("<")]
@@ -59,14 +77,14 @@ pub enum Token {
     #[token("/")]
     Divide,
 
-    #[token("[0-9]+(.[0-9]+)?")]
-    Number,
+    #[token("[0-9]+(.[0-9]+)?", |lex| lex.slice().to_owned())]
+    Number(String),
 
     #[regex(r#""([^"\\]|\\["\\bnfrt]|u[a-fA-F0-9]{4})*""#, |lex| lex.slice().to_owned())]
-    String(String),
+    StringLiteral(String),
 
-    #[token("[a-zA-Z][a-zA-Z0-9_]*")]
-    Identifier,
+    #[token("[a-zA-Z][a-zA-Z0-9_]*", |lex| lex.slice().to_owned())]
+    Identifier(String),
 
     #[token("//.*(?:\n|\r\n|\r|$)")]
     Comment,
